@@ -1,205 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terasync Tech</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Terasync Tech | Website Development</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{background:#0f172a;color:white;}
+
+/* HEADER */
+header{
+position:fixed;
+width:100%;
+top:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+padding:15px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
 }
 
-html {
-    scroll-behavior: smooth;
+/* LOGO */
+.logo img{
+height:50px;
 }
 
-body {
-    background: #0b0f1a;
-    color: white;
+/* NAV LINKS */
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
 }
 
-/* Navbar */
-.navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    padding: 15px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+nav a:hover{
+color:#9333ea;
 }
 
-.logo img {
-    height: 55px; /* Increased */
+/* HERO */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('./hero.png');
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 80px;
+position:relative;
 }
 
-.nav-links a {
-    margin-left: 30px;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: 0.3s;
+.hero-content{
+max-width:700px;
 }
 
-.nav-links a:hover {
-    color: #f107a3;
+.hero h1{
+font-size:48px;
 }
 
-/* Hero */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 60px;
-    background: url('hero.png') center/cover no-repeat;
-    position: relative;
+.hero p{
+margin-top:15px;
+color:#ccc;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.65);
-    top: 0;
-    left: 0;
+/* BUTTONS AT BOTTOM */
+.hero-buttons{
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
+.btn{
+padding:14px 30px;
+margin:10px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
 }
 
-.hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1.2;
+.btn-primary{
+background:linear-gradient(45deg,#6c2bd9,#9333ea);
+color:white;
 }
 
-.hero p {
-    margin-top: 15px;
-    font-size: 18px;
-    color: #ccc;
+.btn-primary:hover{
+opacity:0.9;
 }
 
-/* Buttons */
-.buttons {
-    margin-top: 25px;
+/* SECTION */
+.section{
+padding:80px 20px;
+text-align:center;
 }
 
-.btn {
-    padding: 14px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    margin-right: 10px;
-    display: inline-block;
-    font-weight: 600;
+.section h2{
+margin-bottom:40px;
+font-size:32px;
 }
 
-.call {
-    background: linear-gradient(45deg, #7b2ff7, #f107a3);
-    color: white;
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1100px;
+margin:auto;
 }
 
-.whatsapp {
-    background: #25D366;
-    color: white;
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+transition:0.3s;
 }
 
-/* Sections */
-.section {
-    padding: 100px 60px;
-    background: #0b0f1a;
+.card:hover{
+transform:translateY(-10px);
 }
 
-.section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+/* TESTIMONIALS */
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
 }
 
-.section p {
-    color: #ccc;
-    max-width: 600px;
+.test-box{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
 }
 
-/* Responsive */
-@media(max-width: 768px){
-    .hero {
-        padding: 0 20px;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .logo img {
-        height: 45px;
-    }
+/* PRICING */
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
 }
+
+.price-card{
+background:white;
+color:black;
+padding:25px;
+border-radius:12px;
+}
+
+.price{
+font-size:28px;
+margin:15px 0;
+color:#6c2bd9;
+}
+
+/* FORM */
+.form-box{
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+max-width:400px;
+margin:auto;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#6c2bd9;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+background:#020617;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;
+}
+
 </style>
-
 </head>
 
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-    <div class="logo">
-        <img src="logo.png" alt="logo">
-    </div>
+<header>
 
-    <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </div>
+<!-- LOGO -->
+<div class="logo">
+<img src="logo.png" alt="Terasync Tech">
 </div>
 
-<!-- Hero -->
+<!-- NAV -->
+<nav>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>We Build High-Converting Websites</h1>
-        <p>Modern, fast & mobile-friendly websites to grow your business online</p>
 
-        <div class="buttons">
-            <a href="tel:+917633801161" class="btn call">Call Now</a>
-            <a href="https://wa.me/917633801161" class="btn whatsapp">WhatsApp</a>
-        </div>
-    </div>
+<div class="hero-content" data-aos="fade-up">
+<h1>We Build High-Converting Websites</h1>
+<p>Modern, fast & mobile-friendly websites to grow your business online</p>
+</div>
+
+<!-- ONLY CALL BUTTON (Removed duplicate WhatsApp) -->
+<div class="hero-buttons">
+<a href="tel:+919108417969" class="btn btn-primary">Call Now</a>
+</div>
+
 </section>
 
-<!-- Services Section -->
-<section id="services" class="section">
-    <h2>Our Services</h2>
-    <p>
-        Website Development, ERP Software, Digital Marketing, SEO, CRM Solutions 
-        to grow your business digitally.
-    </p>
+<!-- SERVICES -->
+<section class="section" id="services">
+<h2 data-aos="fade-up">Website Development Services</h2>
+
+<div class="services">
+<div class="card" data-aos="zoom-in">Business Websites</div>
+<div class="card" data-aos="zoom-in">E-commerce Websites</div>
+<div class="card" data-aos="zoom-in">Landing Pages</div>
+<div class="card" data-aos="zoom-in">Website Redesign</div>
+<div class="card" data-aos="zoom-in">Speed Optimization</div>
+<div class="card" data-aos="zoom-in">Maintenance & Support</div>
+</div>
+
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <p>
-        📞 +91 76338 01161 <br>
-        📧 terasynctech.gh@gmail.com
-    </p>
+<!-- CONTACT -->
+<section class="section" id="contact">
+<h2 data-aos="fade-up">Get Free Consultation</h2>
+
+<div class="form-box" data-aos="zoom-in">
+
+<form action="mailto:terasynctech.gh@gmail.com" method="post">
+<input type="text" placeholder="Your Name" required>
+<input type="text" placeholder="Phone Number" required>
+<input type="email" placeholder="Email Address">
+
+<select>
+<option>Business Website</option>
+<option>Ecommerce Website</option>
+<option>Landing Page</option>
+</select>
+
+<button>Submit</button>
+
+</form>
+
+</div>
+
 </section>
+
+<footer>
+<p>Terasync Tech</p>
+<p>Gulam Hamid – COO</p>
+<p>+91 91084 17969 | +91 76338 01161</p>
+</footer>
+
+<!-- ONLY ONE WHATSAPP BUTTON -->
+<a href="https://wa.me/919108417969" class="whatsapp-float">💬</a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+duration:1000,
+once:true
+});
+</script>
 
 </body>
 </html>
