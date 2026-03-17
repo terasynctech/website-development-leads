@@ -15,29 +15,31 @@ margin:0;
 }
 
 .hero{
-background:url('hero.png');
+background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.png');
 background-size:cover;
 background-position:center;
 color:white;
 text-align:center;
-padding:120px 20px;
+padding:150px 20px;
 }
 
-.hero img{
-width:180px;
+.logo{
+width:120px;
 margin-bottom:20px;
 }
 
 .hero h1{
 font-size:42px;
+margin:10px 0;
 }
 
 .hero p{
 font-size:20px;
+margin:10px 0;
 }
 
 .buttons{
-margin-top:20px;
+margin-top:25px;
 }
 
 .buttons a{
@@ -50,6 +52,7 @@ color:white;
 padding:12px 25px;
 margin:5px;
 display:inline-block;
+border-radius:5px;
 }
 
 .whatsappbtn{
@@ -58,6 +61,7 @@ color:white;
 padding:12px 25px;
 margin:5px;
 display:inline-block;
+border-radius:5px;
 }
 
 .section{
@@ -77,6 +81,7 @@ margin:15px;
 padding:20px;
 width:220px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
+border-radius:8px;
 }
 
 form{
@@ -84,12 +89,15 @@ background:#f4f4f4;
 padding:30px;
 width:320px;
 margin:auto;
+border-radius:8px;
 }
 
 input,select{
 width:100%;
 padding:10px;
 margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
 button{
@@ -99,6 +107,7 @@ border:none;
 padding:12px;
 width:100%;
 font-size:16px;
+border-radius:5px;
 }
 
 .footer{
@@ -116,7 +125,7 @@ padding:30px;
 
 <div class="hero">
 
-<img src="logo.png">
+<img src="logo.png" class="logo">
 
 <h1>Get a Professional Business Website in 5 Days</h1>
 
@@ -158,11 +167,8 @@ padding:30px;
 <form action="mailto:terasynctech.gh@gmail.com" method="post" enctype="text/plain">
 
 <input type="text" name="name" placeholder="Your Name" required>
-
 <input type="text" name="phone" placeholder="Phone Number" required>
-
 <input type="email" name="email" placeholder="Email Address">
-
 <input type="text" name="business" placeholder="Business Name">
 
 <select name="website-type">
