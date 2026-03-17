@@ -9,26 +9,20 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{
-background:#0f172a;
-color:white;
-}
+body{background:#0f172a;color:white;}
 
 /* HEADER */
 header{
 position:fixed;
 width:100%;
 top:0;
-left:0;
 background:rgba(0,0,0,0.5);
 backdrop-filter:blur(10px);
 padding:15px 50px;
@@ -37,39 +31,25 @@ justify-content:space-between;
 z-index:1000;
 }
 
-header h2{
-color:#fff;
-}
-
-header a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-}
-
 /* HERO */
 .hero{
 height:100vh;
 background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('hero.png');
 background-size:cover;
-background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px;
+padding:200px 20px 120px;
 }
 
-.hero h1{
-font-size:48px;
-margin-bottom:20px;
-}
+.hero-content{max-width:700px;margin:auto;}
 
-.hero p{
-font-size:18px;
-margin-bottom:30px;
-color:#ccc;
-}
+.hero h1{font-size:48px;}
+
+.hero p{margin-top:15px;color:#ccc;}
+
+.hero-buttons{margin-top:40px;}
 
 .btn{
 padding:14px 30px;
@@ -79,27 +59,15 @@ text-decoration:none;
 font-weight:600;
 }
 
-.btn-primary{
-background:linear-gradient(45deg,#6c2bd9,#9333ea);
-color:white;
-}
+.btn-primary{background:linear-gradient(45deg,#6c2bd9,#9333ea);color:white;}
+.btn-whatsapp{background:#25D366;color:white;}
 
-.btn-whatsapp{
-background:#25D366;
-color:white;
-}
+/* SECTION */
+.section{padding:80px 20px;text-align:center;}
+
+.section h2{margin-bottom:40px;font-size:32px;}
 
 /* SERVICES */
-.section{
-padding:80px 20px;
-text-align:center;
-}
-
-.section h2{
-font-size:32px;
-margin-bottom:40px;
-}
-
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -110,15 +78,50 @@ margin:auto;
 
 .card{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
 padding:25px;
 border-radius:15px;
 transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-10px);
-background:rgba(255,255,255,0.1);
+.card:hover{transform:translateY(-10px);}
+
+/* TESTIMONIALS */
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.test-box{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+}
+
+/* PRICING */
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.price-card{
+background:white;
+color:black;
+padding:25px;
+border-radius:12px;
+}
+
+.price-card h3{margin-bottom:10px;}
+
+.price{
+font-size:28px;
+margin:15px 0;
+color:#6c2bd9;
 }
 
 /* FORM */
@@ -146,7 +149,6 @@ background:#6c2bd9;
 color:white;
 border:none;
 border-radius:8px;
-font-size:16px;
 }
 
 /* FOOTER */
@@ -163,11 +165,9 @@ bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:15px 18px;
+padding:15px;
 border-radius:50%;
-font-size:20px;
 text-decoration:none;
-box-shadow:0 0 10px rgba(0,0,0,0.3);
 }
 
 </style>
@@ -183,43 +183,99 @@ box-shadow:0 0 10px rgba(0,0,0,0.3);
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
+<div class="hero-content" data-aos="fade-up">
 
-<div>
 <h1>We Build High-Converting Websites</h1>
 <p>Modern, fast & mobile-friendly websites to grow your business online</p>
 
+<div class="hero-buttons">
 <a href="tel:+919108417969" class="btn btn-primary">Call Now</a>
 <a href="https://wa.me/919108417969" class="btn btn-whatsapp">WhatsApp</a>
 </div>
 
+</div>
 </section>
 
+<!-- SERVICES -->
 <section class="section" id="services">
-
-<h2>Our Services</h2>
+<h2 data-aos="fade-up">Our Services</h2>
 
 <div class="services">
+<div class="card" data-aos="zoom-in">Business Websites</div>
+<div class="card" data-aos="zoom-in">E-commerce Stores</div>
+<div class="card" data-aos="zoom-in">Landing Pages</div>
+<div class="card" data-aos="zoom-in">SEO Optimization</div>
+<div class="card" data-aos="zoom-in">Website Redesign</div>
+<div class="card" data-aos="zoom-in">Maintenance</div>
+</div>
 
-<div class="card">Business Websites</div>
-<div class="card">E-commerce Stores</div>
-<div class="card">Landing Pages</div>
-<div class="card">Website Redesign</div>
-<div class="card">SEO Optimization</div>
-<div class="card">Website Maintenance</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+<h2 data-aos="fade-up">What Clients Say</h2>
+
+<div class="testimonials">
+
+<div class="test-box" data-aos="fade-up">
+<p>"Amazing website service! Got my business online quickly."</p>
+<b>- Local Business Owner</b>
+</div>
+
+<div class="test-box" data-aos="fade-up">
+<p>"Professional and fast delivery. Highly recommended."</p>
+<b>- Startup Founder</b>
+</div>
+
+<div class="test-box" data-aos="fade-up">
+<p>"Our sales increased after the website launch."</p>
+<b>- Shop Owner</b>
+</div>
 
 </div>
 
 </section>
 
+<!-- PRICING -->
+<section class="section">
+<h2 data-aos="fade-up">Pricing Plans</h2>
+
+<div class="pricing">
+
+<div class="price-card" data-aos="flip-left">
+<h3>Basic</h3>
+<div class="price">₹4,999</div>
+<p>1 Page Website</p>
+<p>Mobile Friendly</p>
+</div>
+
+<div class="price-card" data-aos="flip-left">
+<h3>Standard</h3>
+<div class="price">₹9,999</div>
+<p>5 Pages Website</p>
+<p>SEO Ready</p>
+</div>
+
+<div class="price-card" data-aos="flip-left">
+<h3>Premium</h3>
+<div class="price">₹19,999</div>
+<p>10 Pages + Admin Panel</p>
+<p>Full Support</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
 <section class="section" id="contact">
+<h2 data-aos="fade-up">Get Free Consultation</h2>
 
-<h2>Get Free Consultation</h2>
-
-<div class="form-box">
+<div class="form-box" data-aos="zoom-in">
 
 <form action="mailto:terasynctech.gh@gmail.com" method="post">
-
 <input type="text" placeholder="Your Name" required>
 <input type="text" placeholder="Phone Number" required>
 <input type="email" placeholder="Email Address">
@@ -228,7 +284,6 @@ box-shadow:0 0 10px rgba(0,0,0,0.3);
 <option>Business Website</option>
 <option>Ecommerce Website</option>
 <option>Landing Page</option>
-<option>Redesign</option>
 </select>
 
 <button>Submit</button>
@@ -240,14 +295,21 @@ box-shadow:0 0 10px rgba(0,0,0,0.3);
 </section>
 
 <footer>
-
 <p>Terasync Tech</p>
 <p>Gulam Hamid – COO</p>
 <p>+91 91084 17969 | +91 76338 01161</p>
-
 </footer>
 
 <a href="https://wa.me/919108417969" class="whatsapp-float">💬</a>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+duration:1000,
+once:true
+});
+</script>
 
 </body>
 </html>
