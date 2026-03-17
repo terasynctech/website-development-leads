@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terasync Tech</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -26,24 +25,17 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     padding: 15px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .logo img {
-    height: 40px;
+    height: 35px;
 }
 
 .nav-links a {
@@ -59,11 +51,26 @@ body {
     display: flex;
     align-items: center;
     padding: 0 60px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.png') center/cover no-repeat;
+    position: relative;
+    background: url('hero.png') center/cover no-repeat;
+}
+
+/* Dark Overlay (IMPORTANT FIX) */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 /* Content */
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 600px;
     margin-top: 60px;
 }
@@ -104,33 +111,6 @@ body {
     color: white;
 }
 
-/* Bottom Fixed Buttons */
-.floating-buttons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.floating-buttons a {
-    padding: 12px 18px;
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-}
-
-.call-float {
-    background: linear-gradient(45deg, #7b2ff7, #f107a3);
-}
-
-.whatsapp-float {
-    background: #25D366;
-}
-
 /* Responsive */
 @media(max-width: 768px){
     .hero {
@@ -139,16 +119,12 @@ body {
         justify-content: center;
     }
 
-    .hero-content {
-        max-width: 100%;
+    .hero h1 {
+        font-size: 32px;
     }
 
     .navbar {
         padding: 15px 20px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
     }
 }
 </style>
@@ -160,7 +136,7 @@ body {
 <!-- Navbar -->
 <div class="navbar">
     <div class="logo">
-        <img src="logo.png" alt="Terasync Tech Logo">
+        <img src="logo.png">
     </div>
 
     <div class="nav-links">
@@ -169,7 +145,7 @@ body {
     </div>
 </div>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
     <div class="hero-content">
         <h1>We Build High-Converting Websites</h1>
@@ -181,12 +157,6 @@ body {
         </div>
     </div>
 </section>
-
-<!-- Floating Bottom Buttons -->
-<div class="floating-buttons">
-    <a href="tel:+917633801161" class="call-float">Call</a>
-    <a href="https://wa.me/917633801161" class="whatsapp-float">WhatsApp</a>
-</div>
 
 </body>
 </html>
