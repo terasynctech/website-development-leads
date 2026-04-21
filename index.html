@@ -4,14 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Terasync Tech | Website Development</title>
+<title>TeraSyncTech | Website Development</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0f172a;color:white;}
+
+body{
+background: linear-gradient(-45deg,#020617,#1e293b,#020617,#0f172a);
+background-size:400% 400%;
+animation:bgMove 10s infinite;
+color:white;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
 /* HEADER */
 header{
@@ -37,21 +49,55 @@ transition:0.3s;
 }
 nav a:hover{color:#9333ea;}
 
-/* HERO */
+/* HERO SLIDER */
 .hero{
 height:100vh;
-background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('./hero.png');
-background-size:cover;
+position:relative;
+overflow:hidden;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
+}
+
+.hero-slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+animation:slideShow 18s infinite;
+}
+
+.hero-slide:nth-child(1){
+background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+animation-delay:0s;
+}
+.hero-slide:nth-child(2){
+background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c');
+animation-delay:6s;
+}
+.hero-slide:nth-child(3){
+background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+animation-delay:12s;
+}
+
+@keyframes slideShow{
+0%{opacity:0;}
+10%{opacity:1;}
+30%{opacity:1;}
+40%{opacity:0;}
+100%{opacity:0;}
+}
+
+.hero-content{
+position:relative;
+z-index:2;
 padding:120px 20px;
 }
 
 .hero h1{font-size:52px;font-weight:700;}
-.hero p{margin-top:15px;color:#ccc;font-size:18px;}
+.hero p{margin-top:15px;color:#ddd;font-size:18px;}
 
 .cta-btn{
 margin-top:25px;
@@ -61,17 +107,20 @@ border-radius:30px;
 text-decoration:none;
 color:white;
 font-weight:600;
+box-shadow:0 0 20px #9333ea;
+transition:0.4s;
 }
-
-/* TRUST */
-.trust{text-align:center;padding:40px 20px;background:#020617;color:#ccc;}
+.cta-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px #9333ea;
+}
 
 /* SECTION */
 .section{padding:80px 20px;text-align:center;}
 .section h2{font-size:34px;margin-bottom:30px;}
 
-/* SERVICES */
-.services{
+/* GRID */
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
@@ -87,28 +136,7 @@ transition:0.3s;
 }
 .card:hover{transform:translateY(-10px);}
 
-/* WHY */
-.why{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-.why div{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
-}
-
 /* PRICING */
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
 .price-card{
 background:white;
 color:black;
@@ -117,8 +145,13 @@ border-radius:12px;
 }
 .price{font-size:28px;color:#6c2bd9;margin:15px 0;}
 
-/* URGENCY */
-.urgency{background:#9333ea;padding:30px;text-align:center;font-weight:600;}
+/* CTA STRIP */
+.urgency{
+background:#9333ea;
+padding:30px;
+text-align:center;
+font-weight:600;
+}
 
 /* FORM */
 .form-box{
@@ -148,10 +181,10 @@ border-radius:8px;
 cursor:pointer;
 }
 
-/* FLOAT BUTTON */
+/* FLOAT WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:20px;
+bottom:80px;
 right:20px;
 background:#25D366;
 color:white;
@@ -159,6 +192,31 @@ padding:15px;
 border-radius:50%;
 font-size:20px;
 }
+
+/* BOTTOM BAR */
+.bottom-bar{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+z-index:999;
+}
+.bottom-bar a{
+flex:1;
+padding:15px;
+text-align:center;
+color:white;
+text-decoration:none;
+}
+.call{background:#9333ea;}
+.chat{background:#25D366;}
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+}
+
 </style>
 </head>
 
@@ -171,51 +229,53 @@ font-size:20px;
 
 <nav>
 <a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+
+<div class="hero-slide"></div>
+<div class="hero-slide"></div>
+<div class="hero-slide"></div>
+
+<div class="hero-content">
 <h1 data-aos="fade-up">Get Your Business Online in 3 Days 🚀</h1>
-<p data-aos="fade-up">Professional Website Development that brings real customers</p>
+<p data-aos="fade-up">We Build Websites That Bring Real Customers</p>
 <a href="https://wa.me/919108417969" class="cta-btn">Get Free Quote</a>
+</div>
+
 </section>
 
-<!-- TRUST -->
-<div class="trust">
-Trusted by Local Businesses | Fast Delivery | Affordable Pricing
+<!-- STATS -->
+<section class="section">
+<h2>Our Achievements</h2>
+<div class="grid">
+<div class="card"><h2>50+</h2><p>Clients</p></div>
+<div class="card"><h2>100+</h2><p>Projects</p></div>
+<div class="card"><h2>3+</h2><p>Years Experience</p></div>
 </div>
+</section>
 
 <!-- SERVICES -->
 <section class="section" id="services">
-<h2 data-aos="fade-up">Website Development Services</h2>
-
-<div class="services">
+<h2>Our Services</h2>
+<div class="grid">
 <div class="card">Business Website</div>
 <div class="card">E-commerce Website</div>
 <div class="card">Landing Pages</div>
+<div class="card">SEO Optimization</div>
 <div class="card">Website Redesign</div>
-<div class="card">Speed Optimization</div>
 <div class="card">Maintenance</div>
 </div>
 </section>
 
-<!-- WHY -->
-<section class="section">
-<h2>Why Choose Us</h2>
-<div class="why">
-<div>⚡ Fast Delivery (3-5 Days)</div>
-<div>📱 Mobile Optimized</div>
-<div>💰 Affordable Pricing</div>
-<div>📞 Full Support</div>
-</div>
-</section>
-
 <!-- PRICING -->
-<section class="section">
+<section class="section" id="pricing">
 <h2>Pricing Plans</h2>
-<div class="pricing">
+<div class="grid">
 <div class="price-card">
 <h3>Basic</h3>
 <div class="price">₹4,999</div>
@@ -236,7 +296,7 @@ Trusted by Local Businesses | Fast Delivery | Affordable Pricing
 </div>
 </section>
 
-<!-- URGENCY -->
+<!-- CTA -->
 <div class="urgency">
 🔥 Limited Offer: Free Domain + Hosting for First 10 Clients
 </div>
@@ -257,27 +317,24 @@ Trusted by Local Businesses | Fast Delivery | Affordable Pricing
 
 <textarea name="message" placeholder="Your Requirement"></textarea>
 
-<!-- Hidden Settings -->
-<input type="hidden" name="_subject" value="New Website Lead - Terasync Tech">
 <input type="hidden" name="_captcha" value="false">
-
 <button type="submit">Submit</button>
-
 </form>
 </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="text-align:center;padding:30px;background:#020617;">
-<p>Terasync Tech</p>
-<p>Sadiya Zehra – Business Develeopment Manager</p>
-<p>+91 7549126937 +91 76338 01161</p>
+<footer>
+<p>TeraSyncTech</p>
+<p>Sadiya Zehra – Business Development Manager</p>
+<p>+91 7549126937 | +91 76338 01161</p>
 </footer>
 
 <a href="https://wa.me/919108417969" class="whatsapp">💬</a>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init();</script>
+<div class="bottom-bar">
+<a href="tel:+917549126937" class="call">📞 Call</a>
+<a href="https://wa.me/917549126937" class="chat">💬 WhatsApp</a>
+</div>
 
-</body>
-</html>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script
